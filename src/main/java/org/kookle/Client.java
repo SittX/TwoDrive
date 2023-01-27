@@ -82,8 +82,8 @@ public class Client {
         try {
             Client client = new Client("John");
             client.start("localhost", 5050);
-            while (true) {
-                String response = client.readMessage();
+            String response;
+            while ((response = client.readMessage()) != "exit") {
                 System.out.println(response);
                 if(!response.equals("exit")){
                     System.out.print(" >>> ");

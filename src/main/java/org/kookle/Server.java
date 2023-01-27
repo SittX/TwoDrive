@@ -20,7 +20,7 @@ public class Server {
         try {
             serverSocket = new ServerSocket(port);
             System.out.println("Server listening on port: " + port);
-            while (true) {
+            while (!serverSocket.isClosed()) {
                 clientSocket = serverSocket.accept();
                 input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 output = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
